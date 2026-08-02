@@ -1,0 +1,72 @@
+send_key:
+  name: Send Key
+  description: Send a single key press to the alarm keypad.
+  fields:
+    entry_id:
+      name: Panel
+      description: The config entry ID of the alarm panel (see Settings > Devices & Services > i-ON40 Alarm > ... > Entry ID, or use the device selector in the UI).
+      required: true
+      selector:
+        config_entry:
+          integration: ion40_alarm
+    key:
+      name: Key
+      description: "The key to press: 0-9, U/D/L/R (nav), X (cancel), T (accept), E (menu), N (unset), a/b/c/d (zones, lowercase), * or #."
+      required: true
+      selector:
+        select:
+          options:
+            - "0"
+            - "1"
+            - "2"
+            - "3"
+            - "4"
+            - "5"
+            - "6"
+            - "7"
+            - "8"
+            - "9"
+            - "U"
+            - "D"
+            - "L"
+            - "R"
+            - "X"
+            - "T"
+            - "E"
+            - "N"
+            - "a"
+            - "b"
+            - "c"
+            - "d"
+            - "*"
+            - "#"
+
+send_keys:
+  name: Send Key Sequence
+  description: Send a sequence of key presses to the alarm keypad, e.g. to enter a PIN.
+  fields:
+    entry_id:
+      name: Panel
+      description: The config entry ID of the alarm panel.
+      required: true
+      selector:
+        config_entry:
+          integration: ion40_alarm
+    keys:
+      name: Keys
+      description: List of keys to send in order, e.g. ["1", "2", "3", "4", "T"].
+      required: true
+      example: '["1", "2", "3", "4", "T"]'
+      selector:
+        object:
+    delay:
+      name: Delay
+      description: Delay in seconds between key presses (default 0.3).
+      required: false
+      default: 0.3
+      selector:
+        number:
+          min: 0
+          max: 5
+          step: 0.1
+          unit_of_measurement: seconds

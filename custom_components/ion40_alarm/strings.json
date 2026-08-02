@@ -1,0 +1,29 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect to Alarm Panel",
+        "description": "Enter the details of your i-ON40 alarm panel keypad web interface.",
+        "data": {
+          "host": "Host / IP address",
+          "port": "Port",
+          "scan_interval": "Polling interval (seconds)"
+        }
+      },
+      "reconfigure": {
+        "title": "Reconfigure Alarm Panel",
+        "data": {
+          "host": "Host / IP address",
+          "port": "Port",
+          "scan_interval": "Polling interval (seconds)"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Could not connect to the panel. Check the host, port, and network connectivity."
+    },
+    "abort": {
+      "already_configured": "This panel is already configured."
+    }
+  }
+}
